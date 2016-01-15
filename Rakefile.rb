@@ -40,10 +40,10 @@ desc "Builds LendingLibrary and runs tests"
 task :default => [:build_test]
 
 desc "Builds and tests without coverage"
-task :build_test => [:build_only, :test, :test_web, :check_js]
+task :build_test => [:build_only, :test]
 
 desc "Builds and tests with coverage"
-task :build_coverage => [:build_only, :test_all_with_coverage]
+task :build_coverage => [:build_only, :test_with_coverage]
 
 desc "Only builds"
 task :build_only => [:clean, :update_packages, :msbuild, :copy_to_bin]
@@ -129,32 +129,6 @@ def copy_test_project_output_to(project, location)
     end
 end
 
-#---------------------------------Run Web Tests--------------------------------
-
-npm :update_node_packages do |npm|
-    npm.base = $webproject_baselocation
-end
-
-desc "Launch Karma continuous web test runner"
-karma :karma => [:update_node_packages] do |karma|
-    puts cyan("Launching Karma continuous web test runner (Ctrl+C to stop)")
-    karma.base = $webproject_baselocation
-end
-
-desc "Run web tests once"
-karma :test_web => [:update_node_packages] do |karma|
-    puts cyan("Running web tests with Karma")
-    karma.base = $webproject_baselocation
-    karma.singlerun = true
-end
-
-desc "Run web tests once with coverage"
-karma :test_web_with_coverage => [:test_web] do |karma|
-    puts cyan("Running web coverage with Karma")
-    karma.base = $webproject_baselocation
-    karma.coverage = true
-end
-
 #-----------------------------------Run Tests----------------------------------
 
 desc "Runs the tests"
@@ -172,40 +146,4 @@ end
 
 def testassemblies
     $test_dlls.map {|a| File.join($nunittesting_location, a + ".dll")}
-end
-
-#----------------------------All Tests With Coverage---------------------------
-
-task :test_all_with_coverage => [:test_with_coverage, :test_web_with_coverage, :check_js]
-
-#----------------------------------Build Stats---------------------------------
-
-jslint :jslint_no_output do |lint|
-    puts cyan("Running JSLint")
-    lint.base = $webproject_baselocation
-    lint.source = []
-end
-
-desc "JSLint with results listed"
-jslintoutput :jslint => [:jslint_no_output] do |lint|
-    lint.base = $webproject_baselocation
-end
-
-desc "Checkstyle"
-jslint :checkstyle do |lint|
-    puts cyan("Running Checkstyle")
-    lint.checkstyle = true
-    lint.base = $webproject_baselocation
-    lint.source = []
-end
-
-desc "Plato"
-plato :plato do |plato|
-    puts cyan("Running Plato")
-    plato.base = $webproject_baselocation
-    plato.source = ""
-end
-
-desc "JSLint, Checkstyle and Plato"
-task :check_js => [:jslint_no_output, :checkstyle, :plato] do
 end
