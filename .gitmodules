@@ -1,0 +1,4 @@
+[submodule "rake-tasks"]
+	path = rake-tasks
+	url = https://github.com/Chillisoft/rake-tasks
+	branch = master
