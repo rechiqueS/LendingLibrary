@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics.Contracts;
 using System.Web.Mvc;
 using LendingLibrary.Controllers;
+using LendingLibrary.Models;
 using NUnit.Framework;
 
 namespace LendingLibrary.Tests.Controllers
@@ -46,5 +47,19 @@ namespace LendingLibrary.Tests.Controllers
             // Assert
             Assert.IsNotNull(result);
         }
+
+        [Test]
+        public void Index_ShouldUseLendingModel()
+        {
+            //---------------Set up test pack-------------------
+            var homeController = new HomeController();
+            //---------------Assert Precondition----------------
+            //---------------Execute Test ----------------------
+            var result = homeController.Index() as ViewResult;
+            //---------------Test Result -----------------------
+            Assert.IsNotNull(result);
+            Assert.IsInstanceOf<LendingModel>(result.Model);
+        }
+        
     }
 }
