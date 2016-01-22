@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System.Diagnostics.Contracts;
+using System.Web.Mvc;
 using LendingLibrary.Controllers;
 using NUnit.Framework;
 
@@ -8,7 +9,7 @@ namespace LendingLibrary.Tests.Controllers
     public class HomeControllerTest
     {
         [Test]
-        public void Index()
+        public void Index_ShouldReturnSomething()
         {
             // Arrange
             var controller = new HomeController();
@@ -21,16 +22,16 @@ namespace LendingLibrary.Tests.Controllers
         }
 
         [Test]
-        public void About()
+        public void About_ShouldReturnDescriptionText()
         {
-            // Arrange
+            //---------------Set up test pack-------------------
             var controller = new HomeController();
-
-            // Act
+            var expectedDescriptionText = "Your application description page.";
+            //---------------Assert Precondition----------------
+            //---------------Execute Test ----------------------
             var result = controller.About() as ViewResult;
-
-            // Assert
-            Assert.AreEqual("Your application description page.", result.ViewBag.Message);
+            //---------------Test Result -----------------------
+            Assert.AreEqual(expectedDescriptionText, result.ViewBag.Message);
         }
 
         [Test]
