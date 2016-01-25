@@ -15,18 +15,24 @@ namespace LendingLibrary.Controllers
             return View(model);
         }
 
-        public ActionResult About()
+        [HttpPost]
+        public ActionResult Index(LendingModel lendingModel)
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
+            ViewBag.Message = "Successfully Lended";
+            return View(lendingModel);
         }
 
-        public ActionResult Contact()
+        public ActionResult AddView()
         {
-            ViewBag.Message = "Your contact page.";
+            var model = new LendingItemModel();
+            return View(model);
+        }
 
-            return View();
+        [HttpPost]
+        public ActionResult AddView(LendingItemModel lendingItemModel)
+        {
+            ViewBag.Message = "Successfully Added";
+            return View(lendingItemModel);
         }
     }
 }
