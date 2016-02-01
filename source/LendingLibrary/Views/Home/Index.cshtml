@@ -5,9 +5,8 @@
 }
 
 <div class="jumbotron">
-    <div class="success">
-        @ViewBag.Message
-    </div>
+    @Html.Partial("_SuccessMessage")
+
     @using (Html.BeginForm())
     {
         <p>
@@ -20,7 +19,7 @@
         </p>
 
         <p>
-            <input type="submit" value="Lend me!"/>
+            <input type="submit" value="Lend me!" />
         </p>
     }
 

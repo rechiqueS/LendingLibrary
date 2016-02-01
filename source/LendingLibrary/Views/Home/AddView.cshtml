@@ -5,24 +5,28 @@
 }
 
 <div class="jumbotron">
-    <div class="success">
-        @ViewBag.Message
-    </div>
+
+    @Html.Partial("_SuccessMessage")
+
     @using (Html.BeginForm())
     {
-        <p>
-            @Html.LabelFor(m => m.ItemName)
-            @Html.TextBoxFor(m => m.ItemName)
-        </p>
-        <p>
-            @Html.LabelFor(m => m.ItemDescription)
-            @Html.TextBoxFor(m => m.ItemDescription)
-        </p>
-        
+        <fieldset>
+            <p>
+                @Html.LabelFor(m => m.ItemName)
+                @Html.TextBoxFor(m => m.ItemName)
+            </p>
+            <p>
+                @Html.LabelFor(m => m.ItemDescription)
+                @Html.TextBoxFor(m => m.ItemDescription)
+            </p>
 
-        <p>
-            <input type="submit" value="Add me!" />
-        </p>
+
+            <p>
+                <input type="submit" value="Add me!"/>
+            </p>
+        </fieldset>
+
     }
 
 </div>
+
