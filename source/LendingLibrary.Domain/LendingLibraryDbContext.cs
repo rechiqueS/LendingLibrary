@@ -8,18 +8,17 @@ using System.Threading.Tasks;
 
 namespace LendingLibrary.Domain
 {
-   public class LendingLibraryDbContext : DbContext
+    public class LendingLibraryDbContext : DbContext
     {
-        public IDbSet<LendingLibraryDbContext> Loan { get; set; }
+        public IDbSet<Loan> Loans { get; set; }
 
-       public LendingLibraryDbContext(DbConnection connection) : base(connection, true)
-       {
-       }
+        public LendingLibraryDbContext(DbConnection connection) : base(connection, true)
+        {
+        }
 
-       static LendingLibraryDbContext()
-       {
+        static LendingLibraryDbContext()
+        {
             Database.SetInitializer<LendingLibraryDbContext>(null);
-       }
-
+        }
     }
 }

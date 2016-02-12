@@ -51,9 +51,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="MigrationsRunner.cs" />
+    <Compile Include="Migrations\Migration_201602121635_AddLoansTable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tables.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

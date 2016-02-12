@@ -97,7 +97,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\CompositeDBMigrator.cs" />
-    <Compile Include="Models\LendingLibraryContextPresistenceTestFixtureBase.cs" />
+    <Compile Include="Models\LendingLibraryContextPersistenceTestFixtureBase.cs" />
+    <Compile Include="Models\LoanBuilder.cs" />
+    <Compile Include="Models\TestLoanPersistence.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestLoan.cs" />
   </ItemGroup>
@@ -109,6 +111,10 @@
     <ProjectReference Include="..\LendingLibrary.Domain\LendingLibrary.Domain.csproj">
       <Project>{FB670DE8-4235-4050-B52E-91C5E21748C9}</Project>
       <Name>LendingLibrary.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LendingLibraryUsingEntity.DbMigrations\LendingLibraryUsingEntity.DbMigrations.csproj">
+      <Project>{EF8674DD-EC5B-4690-9463-88E19935C186}</Project>
+      <Name>LendingLibraryUsingEntity.DbMigrations</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
