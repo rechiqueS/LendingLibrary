@@ -38,7 +38,7 @@
       <HintPath>..\packages\FluentMigrator.Tools.1.6.1\tools\AnyCPU\40\FluentMigrator.Runner.dll</HintPath>
     </Reference>
     <Reference Include="PeanutButter.FluentMigrator, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\PeanutButter.FluentMigrator.1.1.29\lib\net40\PeanutButter.FluentMigrator.dll</HintPath>
+      <HintPath>..\packages\PeanutButter.FluentMigrator.1.1.33\lib\net40\PeanutButter.FluentMigrator.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
