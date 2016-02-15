@@ -57,12 +57,24 @@
       <HintPath>..\packages\PeanutButter.FluentMigrator.1.1.29\lib\net40\PeanutButter.FluentMigrator.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="PeanutButter.RandomGenerators, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PeanutButter.RandomGenerators.1.1.15\lib\net40\PeanutButter.RandomGenerators.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="PeanutButter.TempDb, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\PeanutButter.TempDb.1.1.0\lib\net40\PeanutButter.TempDb.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="PeanutButter.TempDb.LocalDb, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\PeanutButter.TempDb.LocalDb.1.1.0\lib\net40\PeanutButter.TempDb.LocalDb.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PeanutButter.TestUtils.Entity, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PeanutButter.TestUtils.Entity.1.0.155\lib\net40\PeanutButter.TestUtils.Entity.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PeanutButter.TestUtils.Generic, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PeanutButter.TestUtils.Generic.1.0.155\lib\net40\PeanutButter.TestUtils.Generic.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="PeanutButter.Utils, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -104,6 +116,9 @@
       <Project>{EF8674DD-EC5B-4690-9463-88E19935C186}</Project>
       <Name>LendingLibraryUsingEntity.DbMigrations</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="GenericBuilderTests-ExampleUsage.cs.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
