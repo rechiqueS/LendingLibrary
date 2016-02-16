@@ -61,48 +61,9 @@ namespace LendingLibrary.Tests.Controllers
             homeController.Index(lendingModel);
             //---------------Test Result -----------------------
             var message = homeController.ViewBag.Message;
+
             Assert.AreEqual("Successfully Lended", message);   
         }
 
-        [Test]
-        public void AddView_ShouldUseLendingItemModel()
-        {
-            //---------------Set up test pack-------------------
-            var homeController = new HomeController();
-            //---------------Assert Precondition----------------
-            //---------------Execute Test ----------------------
-            homeController.WithCallTo(controller => controller.AddView())
-                .ShouldRenderDefaultView()
-                .WithModel<LendingItemModel>(Assert.IsNotNull);
-            //---------------Test Result -----------------------
-        }
-
-        [Test]
-        public void AddView_GivenApostedLendingItemModel_ShouldRenderAddView()
-        {
-            //---------------Set up test pack-------------------
-            var homeController = new HomeController();
-            var lendingItemModel = new LendingItemModel();  
-            //---------------Assert Precondition----------------
-            //---------------Execute Test ----------------------
-            homeController.WithCallTo(controller => controller.AddView(lendingItemModel))
-                .ShouldRenderDefaultView()
-                .WithModel(lendingItemModel);
-            //---------------Test Result -----------------------
-        }
-
-        [Test]
-        public void AddView_GivenPostedLendingItemModel_ShouldDisplaySuccessfullyAdded()
-        {
-            //---------------Set up test pack-------------------
-            var homeController = new HomeController();
-            var lendingItemModel = new LendingItemModel();
-            //---------------Assert Precondition----------------
-            //---------------Execute Test ----------------------
-            homeController.AddView(lendingItemModel);
-            //---------------Test Result -----------------------
-            var message = homeController.ViewBag.Message;
-            Assert.AreEqual("Successfully Added", message);
-        }
     }
 }

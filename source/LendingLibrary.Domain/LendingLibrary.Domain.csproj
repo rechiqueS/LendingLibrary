@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="LendingLibraryDbContext.cs" />
     <Compile Include="Loan.cs" />
+    <Compile Include="LoanRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

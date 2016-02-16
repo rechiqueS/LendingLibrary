@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using LendingLibrary.Domain;
 using LendingLibrary.Models;
 
 namespace LendingLibrary.Controllers
@@ -20,19 +21,6 @@ namespace LendingLibrary.Controllers
         {
             ViewBag.Message = "Successfully Lended";
             return View(lendingModel);
-        }
-
-        public ActionResult AddView()
-        {
-            var model = new LendingItemModel();
-            return View(model);
-        }
-
-        [HttpPost]
-        public ActionResult AddView(LendingItemModel lendingItemModel)
-        {
-            ViewBag.Message = "Successfully Added";
-            return View(lendingItemModel);
         }
     }
 }

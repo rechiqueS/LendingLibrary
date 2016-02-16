@@ -8,7 +8,12 @@ using System.Threading.Tasks;
 
 namespace LendingLibrary.Domain
 {
-    public class LendingLibraryDbContext : DbContext
+    public interface ILendingLibraryDbContext
+    {
+        IDbSet<Loan> Loans { get; set; }
+    }
+
+    public class LendingLibraryDbContext : DbContext, ILendingLibraryDbContext
     {
         public IDbSet<Loan> Loans { get; set; }
 
