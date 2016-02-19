@@ -1,20 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System;
 
 namespace LendingLibrary.Domain
 {
-  public class LoanRepository
+    public class LoanRepository
     {
-      private readonly ILendingLibraryDbContext _context;
+        private readonly ILendingLibraryDbContext _context;
 
-      public LoanRepository(ILendingLibraryDbContext context)
-      {
-          if (context == null) throw new ArgumentNullException(nameof(context));
-          _context = context;
-      }
-        
+        public LoanRepository(ILendingLibraryDbContext context)
+        {
+            if (context == null) throw new ArgumentNullException(nameof(context));
+            _context = context;
+        }
+
+        public void AddLoan(string item, string person)
+        {
+            var loan = new Loan { BorrowerName = person, ItemDescription = item };
+            _context.Loans.Add(loan);
+            _context.SaveChanges();
+        }
     }
 }
