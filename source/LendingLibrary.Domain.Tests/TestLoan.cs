@@ -1,15 +1,14 @@
-﻿using System;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using PeanutButter.TestUtils.Entity;
 using PeanutButter.TestUtils.Generic;
+using System;
 
 namespace LendingLibrary.Domain.Tests
 {
     [TestFixture]
     public class TestLoan
     {
-
-// created a TestCase to test Entity class Loan with properties Id & Name.
+        // created a TestCase to test Entity class Loan with properties Id & Name.
         [TestCase("Id", typeof(int))]
         [TestCase("BorrowerName", typeof(string))]
         [TestCase("ItemDescription", typeof(string))]
@@ -27,12 +26,11 @@ namespace LendingLibrary.Domain.Tests
         public void BorrowerName_ShouldBeRequired()
         {
             //---------------Set up test pack-------------------
-            var loan = new Loan();  
+            var loan = new Loan();
             //---------------Assert Precondition----------------
             //---------------Execute Test ----------------------
             loan.ShouldBeRequired(l => l.BorrowerName);
             //---------------Test Result -----------------------
-           
         }
 
         [Test]
@@ -66,7 +64,6 @@ namespace LendingLibrary.Domain.Tests
             //---------------Execute Test ----------------------
             loan.ShouldHaveMaxLengthOf(200, l => l.ItemDescription);
             //---------------Test Result -----------------------
-            
         }
     }
 }

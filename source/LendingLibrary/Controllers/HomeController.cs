@@ -1,15 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using LendingLibrary.Domain;
+﻿using LendingLibrary.Domain;
 using LendingLibrary.Models;
+using System.Web.Mvc;
 
 namespace LendingLibrary.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly ILoanRepository _loanRepository;
+
+        public HomeController(ILoanRepository loanRepository)
+        {
+            _loanRepository = loanRepository;
+        }
+
+        public HomeController() : this(new LoanRepository(new LendingLibraryDbContext("LendingLibrary.Domain.LendingLibraryDbContext")))
+        {
+        }
+
         public ActionResult Index()
         {
             var model = new LendingModel();
@@ -19,6 +26,7 @@ namespace LendingLibrary.Controllers
         [HttpPost]
         public ActionResult Index(LendingModel lendingModel)
         {
+            _loanRepository.AddLoan(lendingModel.ItemDescription, lendingModel.BorrowerName);
             ViewBag.Message = "Successfully Lended";
             return View(lendingModel);
         }

@@ -1,14 +1,13 @@
 using System;
-using LendingLibraryUsingEntity.DbMigrations;
+using LendingLibrary.DbMigrations;
 using PeanutButter.FluentMigrator;
-using PeanutButter.TestUtils.Entity;
 
-namespace LendingLibrary.Domain.Tests.Models
+namespace LendingLibrary.Domain.Tests
 {
     public class CompositeDBMigrator : IDBMigrationsRunner
     {
         private bool _logMigrations;
-        private MigrationsRunner _migrationsRunner; 
+        private MigrationsRunner _migrationsRunner;
 
         public CompositeDBMigrator(string connectionString, bool logMigrations)
         {
@@ -23,7 +22,6 @@ namespace LendingLibrary.Domain.Tests.Models
                 Console.WriteLine(logMessage);
             }
         }
-
 
         public void MigrateToLatest()
         {

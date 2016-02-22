@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LendingLibrary.Domain", "Le
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LendingLibrary.Domain.Tests", "LendingLibrary.Domain.Tests\LendingLibrary.Domain.Tests.csproj", "{305EC52E-F87C-4EA7-853B-C9AE227B8338}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LendingLibraryUsingEntity.DbMigrations", "LendingLibraryUsingEntity.DbMigrations\LendingLibraryUsingEntity.DbMigrations.csproj", "{EF8674DD-EC5B-4690-9463-88E19935C186}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LendingLibrary.DbMigrations", "LendingLibraryUsingEntity.DbMigrations\LendingLibrary.DbMigrations.csproj", "{EF8674DD-EC5B-4690-9463-88E19935C186}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

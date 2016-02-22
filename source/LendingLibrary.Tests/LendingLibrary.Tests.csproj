@@ -37,6 +37,10 @@
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <Private>False</Private>
     </Reference>
+    <Reference Include="NSubstitute, Version=1.9.2.0, Culture=neutral, PublicKeyToken=92dd2e9066daa5ca, processorArchitecture=MSIL">
+      <HintPath>..\packages\NSubstitute.1.9.2.0\lib\net45\NSubstitute.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="nunit.framework, Version=3.0.5813.39031, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
       <HintPath>..\packages\NUnit.3.0.1\lib\net45\nunit.framework.dll</HintPath>
       <Private>True</Private>
@@ -103,6 +107,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\LendingLibrary.Domain\LendingLibrary.Domain.csproj">
+      <Project>{FB670DE8-4235-4050-B52E-91C5E21748C9}</Project>
+      <Name>LendingLibrary.Domain</Name>
+    </ProjectReference>
     <ProjectReference Include="..\LendingLibrary\LendingLibrary.csproj">
       <Project>{7EC5CE15-E417-46BE-A5BB-944246F8F4EC}</Project>
       <Name>LendingLibrary</Name>

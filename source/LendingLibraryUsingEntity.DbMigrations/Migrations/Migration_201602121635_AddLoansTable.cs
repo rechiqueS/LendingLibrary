@@ -1,7 +1,7 @@
 ﻿using FluentMigrator;
-using _Loans = LendingLibraryUsingEntity.DbMigrations.Tables.Loans;
+using _Loans = LendingLibrary.DbMigrations.Tables.Loans;
 
-namespace LendingLibraryUsingEntity.DbMigrations.Migrations
+namespace LendingLibrary.DbMigrations.Migrations
 {
     [Migration(201602121635)]
     public class Migration_201602121635_AddLoansTable : ForwardOnlyMigration

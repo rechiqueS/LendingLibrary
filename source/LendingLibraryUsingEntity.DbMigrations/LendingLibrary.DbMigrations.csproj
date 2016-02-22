@@ -7,8 +7,8 @@
     <ProjectGuid>{EF8674DD-EC5B-4690-9463-88E19935C186}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>LendingLibraryUsingEntity.DbMigrations</RootNamespace>
-    <AssemblyName>LendingLibraryUsingEntity.DbMigrations</AssemblyName>
+    <RootNamespace>LendingLibrary.DbMigrations</RootNamespace>
+    <AssemblyName>LendingLibrary.DbMigrations</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

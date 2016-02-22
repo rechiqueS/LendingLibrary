@@ -1,8 +1,9 @@
-﻿using System.Diagnostics.Contracts;
-using System.Web.Mvc;
-using LendingLibrary.Controllers;
+﻿using LendingLibrary.Controllers;
+using LendingLibrary.Domain;
 using LendingLibrary.Models;
+using NSubstitute;
 using NUnit.Framework;
+using System.Web.Mvc;
 using TestStack.FluentMVCTesting;
 
 namespace LendingLibrary.Tests.Controllers
@@ -13,13 +14,14 @@ namespace LendingLibrary.Tests.Controllers
         [Test]
         public void Index_ShouldReturnSomething()
         {
-            // Arrange
-            var controller = new HomeController();
+            //---------------Set up test pack-------------------
+            var loanRepository = Substitute.For<ILoanRepository>();
+            var homeController = new HomeController(loanRepository);
 
-            // Act
-            var result = controller.Index() as ViewResult;
-
-            // Assert
+            //---------------Assert Precondition----------------
+            //---------------Execute Test ----------------------
+            var result = homeController.Index() as ViewResult;
+            //---------------Test Result -----------------------
             Assert.IsNotNull(result);
         }
 
@@ -27,7 +29,8 @@ namespace LendingLibrary.Tests.Controllers
         public void Index_ShouldUseLendingModel()
         {
             //---------------Set up test pack-------------------
-            var homeController = new HomeController();
+            var loanRepository = Substitute.For<ILoanRepository>();
+            var homeController = new HomeController(loanRepository);
             //---------------Assert Precondition----------------
             //---------------Execute Test ----------------------
             homeController.WithCallTo(controller => controller.Index())
@@ -40,7 +43,8 @@ namespace LendingLibrary.Tests.Controllers
         public void Index_GivenApostedLendingModel_ShouldRenderDefaultView()
         {
             //---------------Set up test pack-------------------
-            var homeController = new HomeController();
+            var loanRepository = Substitute.For<ILoanRepository>();
+            var homeController = new HomeController(loanRepository);
             var lendingModel = new LendingModel();
             //---------------Assert Precondition----------------
             //---------------Execute Test ----------------------
@@ -51,19 +55,34 @@ namespace LendingLibrary.Tests.Controllers
         }
 
         [Test]
+        public void Index_GivenPostedLendingLibraryModel_ShouldAddLoanToLoanRepository()
+        {
+            //---------------Set up test pack-------------------
+            var loanRepository = Substitute.For<ILoanRepository>();
+            var homeController = new HomeController(loanRepository);
+            var lendingModel = new LendingModel();
+            lendingModel.BorrowerName = "Kevin";
+            lendingModel.ItemDescription = "Pen";
+            //---------------Assert Precondition----------------
+            //---------------Execute Test ----------------------
+            homeController.Index(lendingModel);
+            //---------------Test Result -----------------------
+            loanRepository.Received().AddLoan("Pen", "Kevin");
+        }
+
+        [Test]
         public void Index_GivenPostedLendingModel_ShouldDisplaySuccessfullyLended()
         {
             //---------------Set up test pack-------------------
-            var homeController = new HomeController();
-            var lendingModel = new LendingModel(); 
+            var loanRepository = Substitute.For<ILoanRepository>();
+            var homeController = new HomeController(loanRepository);
+            var lendingModel = new LendingModel();
             //---------------Assert Precondition----------------
             //---------------Execute Test ----------------------
             homeController.Index(lendingModel);
             //---------------Test Result -----------------------
             var message = homeController.ViewBag.Message;
-
-            Assert.AreEqual("Successfully Lended", message);   
+            Assert.AreEqual("Successfully Lended", message);
         }
-
     }
 }

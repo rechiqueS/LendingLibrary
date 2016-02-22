@@ -44,11 +44,22 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FluentMigrator, Version=1.6.1.0, Culture=neutral, PublicKeyToken=aacfc7de5acabf05, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentMigrator.1.6.1\lib\40\FluentMigrator.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FluentMigrator.Runner">
+      <HintPath>..\packages\FluentMigrator.Tools.1.6.1\tools\AnyCPU\40\FluentMigrator.Runner.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PeanutButter.FluentMigrator, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PeanutButter.FluentMigrator.1.1.36\lib\net40\PeanutButter.FluentMigrator.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -201,7 +212,9 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -252,6 +265,10 @@
     <ProjectReference Include="..\LendingLibrary.Domain\LendingLibrary.Domain.csproj">
       <Project>{FB670DE8-4235-4050-B52E-91C5E21748C9}</Project>
       <Name>LendingLibrary.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LendingLibraryUsingEntity.DbMigrations\LendingLibrary.DbMigrations.csproj">
+      <Project>{EF8674DD-EC5B-4690-9463-88E19935C186}</Project>
+      <Name>LendingLibrary.DbMigrations</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

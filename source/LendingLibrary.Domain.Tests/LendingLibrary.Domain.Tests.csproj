@@ -96,7 +96,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\CompositeDBMigrator.cs" />
+    <Compile Include="TestLendingLibraryDbContext.cs" />
+    <Compile Include="CompositeDBMigrator.cs" />
     <Compile Include="Models\LendingLibraryContextPersistenceTestFixtureBase.cs" />
     <Compile Include="Models\LoanBuilder.cs" />
     <Compile Include="Models\TestLoanPersistence.cs" />
@@ -113,9 +114,9 @@
       <Project>{FB670DE8-4235-4050-B52E-91C5E21748C9}</Project>
       <Name>LendingLibrary.Domain</Name>
     </ProjectReference>
-    <ProjectReference Include="..\LendingLibraryUsingEntity.DbMigrations\LendingLibraryUsingEntity.DbMigrations.csproj">
+    <ProjectReference Include="..\LendingLibraryUsingEntity.DbMigrations\LendingLibrary.DbMigrations.csproj">
       <Project>{EF8674DD-EC5B-4690-9463-88E19935C186}</Project>
-      <Name>LendingLibraryUsingEntity.DbMigrations</Name>
+      <Name>LendingLibrary.DbMigrations</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

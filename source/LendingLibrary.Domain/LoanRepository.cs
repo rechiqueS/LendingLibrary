@@ -2,7 +2,7 @@ using System;
 
 namespace LendingLibrary.Domain
 {
-    public class LoanRepository
+    public class LoanRepository : ILoanRepository
     {
         private readonly ILendingLibraryDbContext _context;
 

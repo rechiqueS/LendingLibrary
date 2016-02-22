@@ -49,6 +49,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ILendingLibraryDbContext.cs" />
+    <Compile Include="ILoanRepository.cs" />
     <Compile Include="LendingLibraryDbContext.cs" />
     <Compile Include="Loan.cs" />
     <Compile Include="LoanRepository.cs" />

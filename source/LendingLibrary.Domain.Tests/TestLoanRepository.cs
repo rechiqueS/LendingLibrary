@@ -1,9 +1,9 @@
-﻿using System;
-using System.Linq;
-using LendingLibraryUsingEntity.DbMigrations;
+﻿using LendingLibrary.DbMigrations;
 using NUnit.Framework;
 using PeanutButter.TestUtils.Entity;
 using PeanutButter.Utils.Entity;
+using System;
+using System.Linq;
 
 namespace LendingLibrary.Domain.Tests
 {
@@ -24,7 +24,6 @@ namespace LendingLibrary.Domain.Tests
             ctx.SaveChangesWithErrorReporting();
         }
 
-
         [Test]
         public void AddLoan_GivenAnItemAndPerson_ShouldAddLoanToDataBase()
         {
@@ -44,7 +43,6 @@ namespace LendingLibrary.Domain.Tests
                 Assert.AreEqual(item, loan.ItemDescription);
                 Assert.AreEqual(person, loan.BorrowerName);
             }
-
         }
     }
 }

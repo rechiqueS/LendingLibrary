@@ -1,4 +1,4 @@
-﻿namespace LendingLibraryUsingEntity.DbMigrations
+﻿namespace LendingLibrary.DbMigrations
 {
     public class Tables
     {
